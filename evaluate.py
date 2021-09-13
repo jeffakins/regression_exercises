@@ -4,6 +4,9 @@
 
 import pandas as pd
 import numpy as np
+import math
+import matplotlib.pyplot as plt
+import seaborn as sns
 import os
 
 #---------------------------Evaluate Functions-----------------------------------------------
@@ -58,6 +61,8 @@ def better_than_baseline(actual, predicted):
 
 def plot_residuals(actual, predicted):
     residuals = actual - predicted
+    plt.figure(figsize = (9,6), facecolor="aliceblue")
+    sns.set_theme(style="whitegrid")
     plt.hlines(0, actual.min(), actual.max(), ls=':')
     plt.scatter(actual, residuals)
     plt.ylabel('residual ($y - \hat{y}$)')
